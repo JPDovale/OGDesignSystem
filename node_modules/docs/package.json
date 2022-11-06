@@ -27,9 +27,11 @@
   },
   "dependencies": {
     "@og-ui/eslint-config": "*",
-    "@og-ui/ts-config": "*",
     "@og-ui/react": "*",
     "@og-ui/tokens": "*",
+    "@og-ui/ts-config": "*",
+    "@storybook/addon-a11y": "^6.5.13",
+    "phosphor-react": "^1.4.1",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
