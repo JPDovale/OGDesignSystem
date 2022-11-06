@@ -49,4 +49,5 @@ export const colors = {
   alertDefault: '#f97700',
 
   errorDefault: '#ff6161',
+  fullError: '#ff0000',
 }
