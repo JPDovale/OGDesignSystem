@@ -1,10 +1,4 @@
-import { Meta } from '@storybook/addon-docs'
-
-<Meta title='Home' />
-
-# Ognare UI 
-
-#### Design system Ognare
+# Design system Ognare
 ---
 
 ###### Identidade visual para as futuras aplicações do ecossistema Ognare
@@ -15,8 +9,8 @@ A pretensão de seguir uma visualização mais leve, explorando as sombras e lin
 
 ---
 
-Componentes disponíveis
-----
+## Componentes disponíveis
+
 Nome | Descrição | Código 
 ---- | --------- | -------
 Avatar | Um componente básico de avatar | ``` <Avatar /> ```
@@ -27,3 +21,6 @@ Text input | Um input de texto | ```<TextInput /> ```
 Text area | Um area de texto | ```<Textarea /> ```
 Heading | Um componente de cabeçalho | ```<Heading /> ```
 Text | Um componente de texto | ```<Text /> ```
+
+
+Mais da documentação em [OG ui](https://jpdovale.github.io/OGDesignSystem/?path=/story/home--page)
