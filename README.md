@@ -21,6 +21,7 @@ Text input | Um input de texto | ```<TextInput /> ```
 Text area | Um area de texto | ```<Textarea /> ```
 Heading | Um componente de cabeçalho | ```<Heading /> ```
 Text | Um componente de texto | ```<Text /> ```
+Button | Um componente básico de botão | ```<Button />```
 
 
 Mais da documentação em [OG ui](https://jpdovale.github.io/OGDesignSystem/?path=/story/home--page)
