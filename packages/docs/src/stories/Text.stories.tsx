@@ -9,6 +9,7 @@ export default {
     size: 'md',
     children:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint provident, magni laborum eaque fugit architecto exercitationem necessitatibus labore officiis cumque dolor eligendi cupiditate animi recusandae tempore inventore excepturi! Aut, obcaecati.',
+    as: 'p',
   },
   argTypes: {
     size: {
@@ -30,12 +31,20 @@ export default {
       control: {
         type: 'inline-radio',
       },
+      description: 'Tamanhos disponíveis para o componente',
     },
     family: {
       options: ['bodyText', 'text'],
       control: {
         type: 'inline-radio',
       },
+      description: 'Famílias de fontes disponíveis para o componente',
+    },
+    children: {
+      description: 'Valor atribuído ao componente',
+    },
+    as: {
+      description: 'Parâmetro para controlar a tag de exibição do componente',
     },
   },
 } as Meta<ITextProps>
@@ -47,10 +56,25 @@ export const CustomTag: StoryObj<ITextProps> = {
     children: 'Strong text.',
     as: 'strong',
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Por padrão o componente de cabeçalho `<Text />` sempre será uma tag `p`, mas isso pode ser alterado passando a propriedade `as` para o componente em questão.',
+      },
+    },
+  },
 }
 
 export const BodyText: StoryObj<ITextProps> = {
   args: {
     family: 'body',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Texto com outra familia de texto',
+      },
+    },
   },
 }

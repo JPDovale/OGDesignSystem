@@ -9,12 +9,26 @@ export default {
     children: 'Title',
     as: 'h2',
   },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Componente de título ',
+      },
+    },
+  },
   argTypes: {
     size: {
       options: ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'],
       control: {
         type: 'inline-radio',
       },
+      description: 'Tamanhos disponíveis para o componente',
+    },
+    children: {
+      description: 'Valor atribuído ao componente',
+    },
+    as: {
+      description: 'Parâmetro para controlar a tag de exibição do componente',
     },
   },
 } as Meta<IHeadingProps>
