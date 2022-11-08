@@ -17,3 +17,7 @@
   border-radius: 10px;
   border: 1px solid #1C0D30;
 }
+
+html {
+  overflow-x: hidden
+}
