@@ -4,7 +4,7 @@ import { Input, TextInputContainer, TextInputPrefix } from './style'
 export interface ITextInputProps extends ComponentProps<typeof Input> {
   icon?: ReactNode
   prefix?: string
-  variant?: 'accepted' | 'denied' | 'attention'
+  variant?: 'default' | 'accepted' | 'denied' | 'attention'
 }
 
 export function TextInput({

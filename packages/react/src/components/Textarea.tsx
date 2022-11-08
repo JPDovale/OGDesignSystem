@@ -7,6 +7,7 @@ export const Textarea = styled('textarea', {
   gap: '$3',
 
   padding: '$4',
+  height: '10rem',
 
   fontFamily: '$bodyText',
   fontSize: '$md',
@@ -21,8 +22,13 @@ export const Textarea = styled('textarea', {
   color: '$base100',
   resize: 'vertical',
 
+  '&:focus': {
+    boxShadow: '$inFocus',
+  },
+
   '&:disabled': {
     opacity: '0.5',
+    resize: 'none',
     cursor: 'not-allowed',
   },
 
@@ -49,7 +55,7 @@ export const Textarea = styled('textarea', {
 })
 
 export interface ITextAreaProps extends ComponentProps<typeof Textarea> {
-  variant?: 'accepted' | 'denied' | 'attention'
+  variant?: 'default' | 'accepted' | 'denied' | 'attention'
 }
 
 Textarea.displayName = 'Textarea'
