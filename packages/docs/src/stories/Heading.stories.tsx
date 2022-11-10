@@ -6,6 +6,9 @@ export default {
   component: Heading,
   args: {
     size: 'md',
+    spacing: 'default',
+    height: 'base',
+    weight: 'regular',
     children: 'Title',
     as: 'h2',
   },
@@ -19,6 +22,27 @@ export default {
   argTypes: {
     size: {
       options: ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'],
+      control: {
+        type: 'inline-radio',
+      },
+      description: 'Tamanhos disponíveis para o componente',
+    },
+    spacing: {
+      options: ['default', 'minimus', 'minus', 'medium', 'maximum'],
+      control: {
+        type: 'inline-radio',
+      },
+      description: 'Tamanhos disponíveis para o componente',
+    },
+    height: {
+      options: ['shorter', 'short', 'base', 'tall'],
+      control: {
+        type: 'inline-radio',
+      },
+      description: 'Tamanhos disponíveis para o componente',
+    },
+    weight: {
+      options: ['regular', 'medium', 'bold'],
       control: {
         type: 'inline-radio',
       },

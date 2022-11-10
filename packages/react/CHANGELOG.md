@@ -1,5 +1,17 @@
 # @og-ui/react
 
+## 1.2.0
+
+### Minor Changes
+
+- # Novas propriedades para componentes
+
+  ***
+
+  Novas propriedades para os componentes `<Heading />` e `<Text />`
+
+  As novas propriedades adicionadas são usadas para definição de espaçamento de letras, peso da fonte e altura das linhas
+
 ## 1.1.0
 
 ### Minor Changes

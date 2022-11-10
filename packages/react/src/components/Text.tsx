@@ -27,11 +27,32 @@ export const Text = styled('p', {
       body: { fontFamily: '$bodyText' },
       text: { fontFamily: '$text' },
     },
+    spacing: {
+      default: { letterSpacing: 'none' },
+      minimus: { letterSpacing: '$minimum' },
+      minus: { letterSpacing: '$minus' },
+      medium: { letterSpacing: '$medium' },
+      maximum: { letterSpacing: '$maximum' },
+    },
+    height: {
+      shorter: { lineHeight: '$shorter' },
+      short: { lineHeight: '$short' },
+      base: { lineHeight: '$base' },
+      tall: { lineHeight: '$tall' },
+    },
+    weight: {
+      regular: { fontWeight: '$regular' },
+      medium: { fontWeight: '$medium' },
+      bold: { fontWeight: '$bold' },
+    },
   },
 
   defaultVariants: {
     size: 'md',
     family: 'text',
+    spacing: 'default',
+    height: 'base',
+    weight: 'regular',
   },
 })
 

@@ -7,6 +7,9 @@ export default {
   args: {
     family: 'text',
     size: 'md',
+    spacing: 'default',
+    height: 'base',
+    weight: 'regular',
     children:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint provident, magni laborum eaque fugit architecto exercitationem necessitatibus labore officiis cumque dolor eligendi cupiditate animi recusandae tempore inventore excepturi! Aut, obcaecati.',
     as: 'p',
@@ -39,6 +42,27 @@ export default {
         type: 'inline-radio',
       },
       description: 'Famílias de fontes disponíveis para o componente',
+    },
+    spacing: {
+      options: ['default', 'minimus', 'minus', 'medium', 'maximum'],
+      control: {
+        type: 'inline-radio',
+      },
+      description: 'Tamanhos disponíveis para o componente',
+    },
+    height: {
+      options: ['shorter', 'short', 'base', 'tall'],
+      control: {
+        type: 'inline-radio',
+      },
+      description: 'Tamanhos disponíveis para o componente',
+    },
+    weight: {
+      options: ['regular', 'medium', 'bold'],
+      control: {
+        type: 'inline-radio',
+      },
+      description: 'Tamanhos disponíveis para o componente',
     },
     children: {
       description: 'Valor atribuído ao componente',
