@@ -1,5 +1,11 @@
 # @og-ui/react
 
+## 1.3.0
+
+### Minor Changes
+
+- 86b0de44: reexport stchies
+
 ## 1.2.0
 
 ### Minor Changes
