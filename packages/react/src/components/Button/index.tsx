@@ -16,7 +16,7 @@ export interface IButtonRootProps
   children?: ReactNode
 }
 
-function ButtonRoot(props: IButtonRootProps) {
+export function ButtonRoot(props: IButtonRootProps) {
   return <ButtonContainer {...props} />
 }
 
@@ -27,7 +27,7 @@ export interface IButtonIconProps
   children: ReactNode
 }
 
-function ButtonIcon(props: IButtonIconProps) {
+export function ButtonIcon(props: IButtonIconProps) {
   return <ButtonIconContainer {...props} />
 }
 
@@ -38,7 +38,7 @@ export interface IButtonLabelProps
   children: ReactNode
 }
 
-function ButtonLabel(props: IButtonLabelProps) {
+export function ButtonLabel(props: IButtonLabelProps) {
   return <ButtonLabelContainer {...props} />
 }
 
@@ -62,9 +62,3 @@ ButtonLabel.displayName = 'Button.Label'
 //     </ButtonContainer>
 //   )
 // }
-
-export const Button = {
-  Root: ButtonRoot,
-  Icon: ButtonIcon,
-  Label: ButtonLabel,
-}

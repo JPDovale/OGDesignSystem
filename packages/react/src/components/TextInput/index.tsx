@@ -19,7 +19,7 @@ export interface ITextInputRootProps
   variant?: 'default' | 'accepted' | 'denied' | 'attention'
 }
 
-function TextInputRoot(props: ITextInputRootProps) {
+export function TextInputRoot(props: ITextInputRootProps) {
   return <TextInputContainer {...props} />
 }
 
@@ -30,7 +30,7 @@ export interface ITextInputPrefixProps
   children?: ReactNode
 }
 
-function TextInputPrefix(props: ITextInputPrefixProps) {
+export function TextInputPrefix(props: ITextInputPrefixProps) {
   return <TextInputPrefixContainer {...props} />
 }
 
@@ -41,27 +41,21 @@ export interface ITextInputIconProps
   children?: ReactNode
 }
 
-function TextInputIcon(props: ITextInputIconProps) {
+export function TextInputIcon(props: ITextInputIconProps) {
   return <TextInputIconContainer {...props} />
 }
 
 TextInputIcon.displayName = 'TextInput.Icon'
 
 export interface ITextInputInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {}
+  extends InputHTMLAttributes<HTMLInputElement>,
+    ComponentProps<typeof Input> {}
 
-function TextInputInput(props: ITextInputInputProps) {
+export function TextInputInput(props: ITextInputInputProps) {
   return <Input {...props} />
 }
 
 TextInputInput.displayName = 'TextInput.Input'
-
-export const TextInput = {
-  Root: TextInputRoot,
-  Input: TextInputInput,
-  Prefix: TextInputPrefix,
-  Icon: TextInputIcon,
-}
 
 // export function TextInput({
 //   icon,

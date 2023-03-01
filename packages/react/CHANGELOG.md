@@ -1,5 +1,11 @@
 # @og-ui/react
 
+## 1.4.2
+
+### Patch Changes
+
+- Change exports types
+
 ## 1.4.1
 
 ### Patch Changes
