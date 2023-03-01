@@ -1,4 +1,4 @@
-import React, { ComponentProps, ElementType } from 'react'
+import React, { ComponentProps, ElementType, ReactNode } from 'react'
 
 import { styled } from '../styles'
 
@@ -59,6 +59,7 @@ const TextContainer = styled('p', {
 
 export interface ITextProps extends ComponentProps<typeof TextContainer> {
   as?: ElementType
+  children?: ReactNode
 }
 
 export function Text(props: ITextProps) {

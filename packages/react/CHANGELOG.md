@@ -1,5 +1,11 @@
 # @og-ui/react
 
+## 1.4.1
+
+### Patch Changes
+
+- Add definitions types
+
 ## 1.4.0
 
 ### Minor Changes
