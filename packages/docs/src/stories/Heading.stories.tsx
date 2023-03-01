@@ -1,3 +1,4 @@
+import React from 'react'
 import type { StoryObj, Meta } from '@storybook/react'
 import { Heading, IHeadingProps } from '@og-ui/react'
 
@@ -10,7 +11,7 @@ export default {
     height: 'base',
     weight: 'regular',
     children: 'Title',
-    as: 'h2',
+    asChild: false,
   },
   parameters: {
     docs: {
@@ -51,7 +52,7 @@ export default {
     children: {
       description: 'Valor atribuído ao componente',
     },
-    as: {
+    asChild: {
       description: 'Parâmetro para controlar a tag de exibição do componente',
     },
   },
@@ -61,8 +62,8 @@ export const Default: StoryObj<IHeadingProps> = {}
 
 export const CustomTag: StoryObj<IHeadingProps> = {
   args: {
-    children: 'H1 heading.',
-    as: 'h1',
+    children: <h1>H1 heading.</h1>,
+    asChild: true,
   },
 
   parameters: {
