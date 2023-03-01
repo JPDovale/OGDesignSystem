@@ -13,6 +13,7 @@ export interface IButtonRootProps
   wid?: 'full' | 'middle' | 'hug'
   align?: 'left' | 'center' | 'right'
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  children?: ReactNode
 }
 
 function ButtonRoot(props: IButtonRootProps) {

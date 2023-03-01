@@ -1,4 +1,4 @@
-import React, { ComponentProps, ElementType } from 'react'
+import React, { ComponentProps, ElementType, ReactNode } from 'react'
 
 import { styled } from '../styles'
 
@@ -49,6 +49,7 @@ const HeadingContainer = styled('h2', {
 
 export interface IHeadingProps extends ComponentProps<typeof HeadingContainer> {
   as?: ElementType
+  children?: ReactNode
 }
 
 export function Heading(props: IHeadingProps) {
