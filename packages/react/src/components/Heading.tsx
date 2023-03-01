@@ -48,6 +48,10 @@ const HeadingContainer = styled('h2', {
 })
 
 export interface IHeadingProps extends ComponentProps<typeof HeadingContainer> {
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl'
+  spacing?: 'default' | 'minimus' | 'minus' | 'medium' | 'maximum'
+  height?: 'shorter' | 'short' | 'base' | 'tall'
+  weight?: 'regular' | 'medium' | 'bold'
   as?: ElementType
   children?: ReactNode
 }

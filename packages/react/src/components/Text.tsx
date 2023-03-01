@@ -59,6 +59,24 @@ const TextContainer = styled('p', {
 
 export interface ITextProps extends ComponentProps<typeof TextContainer> {
   as?: ElementType
+  size?:
+    | 'xxs'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | '6xl'
+    | '7xl'
+    | '8xl'
+  family?: 'body' | 'text' | 'headingText'
+  spacing?: 'default' | 'minimus' | 'minus' | 'medium' | 'maximum'
+  height?: 'shorter' | 'short' | 'base' | 'tall'
+  weight?: 'regular' | 'medium' | 'bold'
   children?: ReactNode
 }
 
