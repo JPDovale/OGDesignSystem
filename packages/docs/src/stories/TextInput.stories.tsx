@@ -1,12 +1,19 @@
 import React from 'react'
 
 import type { StoryObj, Meta } from '@storybook/react'
-import { TextInput, ITextInputRootProps, Box, Text } from '@og-ui/react'
+import {
+  TextInputRoot,
+  TextInputIcon,
+  TextInputInput,
+  ITextInputRootProps,
+  Box,
+  Text,
+} from '@og-ui/react'
 import { Envelope } from 'phosphor-react'
 
 export default {
   title: 'Form/ TextInput',
-  component: TextInput.Root,
+  component: TextInputRoot,
   parameters: {
     docs: {
       description: {
@@ -18,10 +25,10 @@ export default {
   args: {
     children: (
       <>
-        <TextInput.Icon>
+        <TextInputIcon>
           <Envelope />
-        </TextInput.Icon>
-        <TextInput.Input placeholder="Insira o seu nome" />{' '}
+        </TextInputIcon>
+        <TextInputInput placeholder="Insira o seu nome" />{' '}
       </>
     ),
     variant: 'default',
