@@ -12,12 +12,6 @@ export const TextInputContainer = styled('div', {
   boxSizing: 'border-box',
   transition: 'all 500ms',
 
-  svg: {
-    width: '$4',
-    height: '$4',
-    color: '$base800',
-  },
-
   '&:has(input:focus)': {
     boxShadow: '$inFocus',
   },
@@ -49,7 +43,7 @@ export const TextInputContainer = styled('div', {
   },
 })
 
-export const TextInputPrefix = styled('span', {
+export const TextInputPrefixContainer = styled('span', {
   marginRight: -10,
 
   fontFamily: '$text',
@@ -62,6 +56,7 @@ export const TextInputPrefix = styled('span', {
 
 export const Input = styled('input', {
   width: '100%',
+  height: '100%',
 
   background: '$transparent',
   border: 'none',
@@ -71,5 +66,17 @@ export const Input = styled('input', {
 
   '&:disabled': {
     cursor: 'not-allowed',
+  },
+})
+
+export const TextInputIconContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+
+  svg: {
+    width: '$4',
+    height: '$4',
+    color: '$base800',
+    lineHeight: 0,
   },
 })

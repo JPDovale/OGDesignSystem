@@ -1,12 +1,12 @@
 import React from 'react'
 
 import type { StoryObj, Meta } from '@storybook/react'
-import { Button, IButtonProps } from '@og-ui/react'
+import { Button, IButtonRootProps } from '@og-ui/react'
 import { Share } from 'phosphor-react'
 
 export default {
   title: 'Form/Button',
-  component: Button,
+  component: Button.Root,
   parameters: {
     docs: {
       description: {
@@ -15,29 +15,24 @@ export default {
     },
   },
   args: {
-    icon: null,
-    label: 'Enviar',
     align: 'center',
     disabled: false,
     wid: 'full',
     variant: 'default',
   },
   argTypes: {
-    icon: {
-      control: {
-        type: null,
-      },
-      description: 'Ícone do botão (Opcional)',
-    },
-    label: {
-      description: 'Texto do botão (Opcional)',
-    },
     align: {
       options: ['left', 'center', 'right'],
       control: {
         type: 'inline-radio',
       },
       description: 'Alinhamento dos itens do botão (Opcional)',
+    },
+    size: {
+      options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
+      control: {
+        type: 'inline-radio',
+      },
     },
     wid: {
       options: ['hug', 'middle', 'full'],
@@ -47,208 +42,344 @@ export default {
       description: 'Tamanho do botão (Padrão: `Full`)',
     },
     variant: {
-      options: ['default', 'active'],
+      options: ['default', 'active', 'noShadow'],
       control: {
         type: 'inline-radio',
       },
       description: 'Possíveis estados do botão ',
     },
   },
-} as Meta<IButtonProps>
+} as Meta<IButtonRootProps>
 
-export const Default: StoryObj<IButtonProps> = {}
-
-export const WhitIcon: StoryObj<IButtonProps> = {
+export const Default: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: <Button.Label>Compartilhar</Button.Label>,
   },
 }
 
-export const WhitIconActive: StoryObj<IButtonProps> = {
+export const WhitIcon: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+  },
+}
+
+export const WhitIconActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     variant: 'active',
   },
 }
 
-export const WhitIconLeft: StoryObj<IButtonProps> = {
+export const WhitIconLeft: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     align: 'left',
   },
 }
 
-export const WhitIconLeftActive: StoryObj<IButtonProps> = {
+export const WhitIconLeftActive: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'left',
-    variant: 'active',
-  },
-}
-
-export const WhitIconRight: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'right',
-  },
-}
-
-export const WhitIconRightActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'right',
-    variant: 'active',
-  },
-}
-
-export const WhitIconDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    disabled: true,
-  },
-}
-
-export const WhitIconDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const WhitIconLeftDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'left',
-    disabled: true,
-  },
-}
-
-export const WhitIconLeftDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'left',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const WhitIconRightDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'right',
-    disabled: true,
-  },
-}
-export const WhitIconRightDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    align: 'right',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const WhitIconMiddle: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'middle',
-  },
-}
-
-export const WhitIconMiddleActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'middle',
-    variant: 'active',
-  },
-}
-
-export const WhitIconMiddleLeft: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'left',
-  },
-}
-
-export const WhitIconMiddleLeftActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'middle',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     align: 'left',
     variant: 'active',
   },
 }
 
-export const WhitIconMiddleRight: StoryObj<IButtonProps> = {
+export const WhitIconRight: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    align: 'right',
+  },
+}
+
+export const WhitIconRightActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    align: 'right',
+    variant: 'active',
+  },
+}
+
+export const WhitIconDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    disabled: true,
+  },
+}
+
+export const WhitIconDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const WhitIconLeftDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    align: 'left',
+    disabled: true,
+  },
+}
+
+export const WhitIconLeftDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    align: 'left',
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const WhitIconRightDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    align: 'right',
+    disabled: true,
+  },
+}
+export const WhitIconRightDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    align: 'right',
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const WhitIconMiddle: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    wid: 'middle',
+  },
+}
+
+export const WhitIconMiddleActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    wid: 'middle',
+    variant: 'active',
+  },
+}
+
+export const WhitIconMiddleLeft: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    wid: 'middle',
+    align: 'left',
+  },
+}
+
+export const WhitIconMiddleLeftActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    wid: 'middle',
+    align: 'left',
+    variant: 'active',
+  },
+}
+
+export const WhitIconMiddleRight: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     align: 'right',
   },
 }
 
-export const WhitIconMiddleRightActive: StoryObj<IButtonProps> = {
+export const WhitIconMiddleRightActive: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     align: 'right',
     variant: 'active',
   },
 }
 
-export const WhitIconMiddleDisabled: StoryObj<IButtonProps> = {
+export const WhitIconMiddleDisabled: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     disabled: true,
   },
 }
 
-export const WhitIconMiddleDisabledActive: StoryObj<IButtonProps> = {
+export const WhitIconMiddleDisabledActive: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     disabled: true,
     variant: 'active',
   },
 }
 
-export const WhitIconMiddleLeftDisabled: StoryObj<IButtonProps> = {
+export const WhitIconMiddleLeftDisabled: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     align: 'left',
     disabled: true,
   },
 }
 
-export const WhitIconMiddleLeftDisabledActive: StoryObj<IButtonProps> = {
+export const WhitIconMiddleLeftDisabledActive: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     align: 'left',
     disabled: true,
@@ -256,20 +387,32 @@ export const WhitIconMiddleLeftDisabledActive: StoryObj<IButtonProps> = {
   },
 }
 
-export const WhitIconMiddleRightDisabled: StoryObj<IButtonProps> = {
+export const WhitIconMiddleRightDisabled: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     align: 'right',
     disabled: true,
   },
 }
 
-export const WhitIconMiddleRightDisabledActive: StoryObj<IButtonProps> = {
+export const WhitIconMiddleRightDisabledActive: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'middle',
     align: 'right',
     disabled: true,
@@ -277,520 +420,628 @@ export const WhitIconMiddleRightDisabledActive: StoryObj<IButtonProps> = {
   },
 }
 
-export const WhitIconHug: StoryObj<IButtonProps> = {
+export const WhitIconHug: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'hug',
   },
 }
 
-export const WhitIconHugActive: StoryObj<IButtonProps> = {
+export const WhitIconHugActive: StoryObj<IButtonRootProps> = {
   args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'hug',
-    variant: 'active',
-  },
-}
-
-export const WhitIconHugDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'hug',
-    disabled: true,
-  },
-}
-
-export const WhitIconHugDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: 'Compartilhar',
-    wid: 'hug',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyIcon: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-  },
-}
-
-export const OnlyIconActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    variant: 'active',
-    label: '',
-  },
-}
-
-export const OnlyIconLeft: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    align: 'left',
-  },
-}
-
-export const OnlyIconLeftActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    variant: 'active',
-    align: 'left',
-  },
-}
-
-export const OnlyIconRight: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    align: 'right',
-  },
-}
-
-export const OnlyIconRightActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    variant: 'active',
-    align: 'right',
-  },
-}
-
-export const OnlyIconDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    disabled: true,
-  },
-}
-
-export const OnlyIconDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const OnlyIconLeftDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    align: 'left',
-    disabled: true,
-  },
-}
-
-export const OnlyIconLeftDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    align: 'left',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const OnlyIconRightDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    align: 'right',
-    disabled: true,
-  },
-}
-
-export const OnlyIconRightDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    align: 'right',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const OnlyIconMiddle: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-  },
-}
-
-export const OnlyIconMiddleActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    variant: 'active',
-    wid: 'middle',
-  },
-}
-
-export const OnlyIconMiddleLeft: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'left',
-  },
-}
-
-export const OnlyIconMiddleLeftActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'left',
-    variant: 'active',
-  },
-}
-
-export const OnlyIconMiddleRight: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'right',
-  },
-}
-
-export const OnlyIconMiddleRightActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'right',
-    variant: 'active',
-  },
-}
-
-export const OnlyIconMiddleDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    disabled: true,
-  },
-}
-
-export const OnlyIconMiddleDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const OnlyIconMiddleLeftDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'left',
-    disabled: true,
-  },
-}
-
-export const OnlyIconMiddleLeftDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'left',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyIconMiddleRightDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'right',
-    disabled: true,
-  },
-}
-
-export const OnlyIconMiddleRightDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'middle',
-    align: 'right',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyIconHug: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'hug',
-  },
-}
-
-export const OnlyIconHugActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    variant: 'active',
-    wid: 'hug',
-  },
-}
-
-export const OnlyIconHugDisabled: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'hug',
-    disabled: true,
-  },
-}
-
-export const OnlyIconHugDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    icon: <Share />,
-    label: '',
-    wid: 'hug',
-    variant: 'active',
-    disabled: true,
-  },
-}
-
-export const OnlyLabel: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-  },
-}
-
-export const OnlyLabelActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelLeft: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'left',
-  },
-}
-
-export const OnlyLabelLeftActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'left',
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelRight: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'right',
-  },
-}
-
-export const OnlyLabelRightActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'right',
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelDisabled: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    disabled: true,
-  },
-}
-
-export const OnlyLabelDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelLeftDisabled: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'left',
-    disabled: true,
-  },
-}
-
-export const OnlyLabelLeftDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'left',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelRightDisabled: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'right',
-    disabled: true,
-  },
-}
-
-export const OnlyLabelRightDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    align: 'right',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelMiddle: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-  },
-}
-
-export const OnlyLabelMiddleActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelMiddleLeft: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'left',
-  },
-}
-
-export const OnlyLabelMiddleLeftActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'left',
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelMiddleRight: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'right',
-  },
-}
-
-export const OnlyLabelMiddleRightActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'right',
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelMiddleDisabled: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    disabled: true,
-  },
-}
-
-export const OnlyLabelMiddleDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelMiddleLeftDisabled: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'left',
-    disabled: true,
-  },
-}
-
-export const OnlyLabelMiddleLeftDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'left',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelMiddleRightDisabled: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'right',
-    disabled: true,
-  },
-}
-
-export const OnlyLabelMiddleRightDisabledActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'middle',
-    align: 'right',
-    disabled: true,
-    variant: 'active',
-  },
-}
-
-export const OnlyLabelHug: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
-    wid: 'hug',
-  },
-}
-
-export const OnlyLabelHugActive: StoryObj<IButtonProps> = {
-  args: {
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'hug',
     variant: 'active',
   },
 }
 
-export const OnlyLabelHugDisabled: StoryObj<IButtonProps> = {
+export const WhitIconHugDisabled: StoryObj<IButtonRootProps> = {
   args: {
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
     wid: 'hug',
     disabled: true,
   },
 }
 
-export const OnlyLabelHugDisabledActive: StoryObj<IButtonProps> = {
+export const WhitIconHugDisabledActive: StoryObj<IButtonRootProps> = {
   args: {
-    label: 'Compartilhar',
+    children: (
+      <>
+        <Button.Icon>
+          <Share />
+        </Button.Icon>
+        <Button.Label>Compartilhar</Button.Label>
+      </>
+    ),
+    wid: 'hug',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyIcon: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+  },
+}
+
+export const OnlyIconActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    variant: 'active',
+  },
+}
+
+export const OnlyIconLeft: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    align: 'left',
+  },
+}
+
+export const OnlyIconLeftActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    variant: 'active',
+    align: 'left',
+  },
+}
+
+export const OnlyIconRight: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    align: 'right',
+  },
+}
+
+export const OnlyIconRightActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    variant: 'active',
+    align: 'right',
+  },
+}
+
+export const OnlyIconDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    disabled: true,
+  },
+}
+
+export const OnlyIconDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const OnlyIconLeftDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    align: 'left',
+    disabled: true,
+  },
+}
+
+export const OnlyIconLeftDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    align: 'left',
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const OnlyIconRightDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    align: 'right',
+    disabled: true,
+  },
+}
+
+export const OnlyIconRightDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    align: 'right',
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const OnlyIconMiddle: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+  },
+}
+
+export const OnlyIconMiddleActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    variant: 'active',
+    wid: 'middle',
+  },
+}
+
+export const OnlyIconMiddleLeft: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'left',
+  },
+}
+
+export const OnlyIconMiddleLeftActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'left',
+    variant: 'active',
+  },
+}
+
+export const OnlyIconMiddleRight: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'right',
+  },
+}
+
+export const OnlyIconMiddleRightActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'right',
+    variant: 'active',
+  },
+}
+
+export const OnlyIconMiddleDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    disabled: true,
+  },
+}
+
+export const OnlyIconMiddleDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const OnlyIconMiddleLeftDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'left',
+    disabled: true,
+  },
+}
+
+export const OnlyIconMiddleLeftDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'left',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyIconMiddleRightDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'right',
+    disabled: true,
+  },
+}
+
+export const OnlyIconMiddleRightDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'middle',
+    align: 'right',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyIconHug: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'hug',
+  },
+}
+
+export const OnlyIconHugActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    variant: 'active',
+    wid: 'hug',
+  },
+}
+
+export const OnlyIconHugDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'hug',
+    disabled: true,
+  },
+}
+
+export const OnlyIconHugDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: (
+      <Button.Icon>
+        <Share />
+      </Button.Icon>
+    ),
+    wid: 'hug',
+    variant: 'active',
+    disabled: true,
+  },
+}
+
+export const OnlyLabel: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+  },
+}
+
+export const OnlyLabelActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelLeft: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'left',
+  },
+}
+
+export const OnlyLabelLeftActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'left',
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelRight: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'right',
+  },
+}
+
+export const OnlyLabelRightActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'right',
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    disabled: true,
+  },
+}
+
+export const OnlyLabelDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelLeftDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'left',
+    disabled: true,
+  },
+}
+
+export const OnlyLabelLeftDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'left',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelRightDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'right',
+    disabled: true,
+  },
+}
+
+export const OnlyLabelRightDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    align: 'right',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelMiddle: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+  },
+}
+
+export const OnlyLabelMiddleActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelMiddleLeft: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'left',
+  },
+}
+
+export const OnlyLabelMiddleLeftActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'left',
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelMiddleRight: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'right',
+  },
+}
+
+export const OnlyLabelMiddleRightActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'right',
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelMiddleDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    disabled: true,
+  },
+}
+
+export const OnlyLabelMiddleDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelMiddleLeftDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'left',
+    disabled: true,
+  },
+}
+
+export const OnlyLabelMiddleLeftDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'left',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelMiddleRightDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'right',
+    disabled: true,
+  },
+}
+
+export const OnlyLabelMiddleRightDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'middle',
+    align: 'right',
+    disabled: true,
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelHug: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'hug',
+  },
+}
+
+export const OnlyLabelHugActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'hug',
+    variant: 'active',
+  },
+}
+
+export const OnlyLabelHugDisabled: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
+    wid: 'hug',
+    disabled: true,
+  },
+}
+
+export const OnlyLabelHugDisabledActive: StoryObj<IButtonRootProps> = {
+  args: {
+    children: <Button.Label>Compartilhar</Button.Label>,
     wid: 'hug',
     disabled: true,
     variant: 'active',

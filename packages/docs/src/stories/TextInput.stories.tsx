@@ -1,12 +1,12 @@
 import React from 'react'
 
 import type { StoryObj, Meta } from '@storybook/react'
-import { TextInput, ITextInputProps, Box, Text } from '@og-ui/react'
-import { Envelope, User } from 'phosphor-react'
+import { TextInput, ITextInputRootProps, Box, Text } from '@og-ui/react'
+import { Envelope } from 'phosphor-react'
 
 export default {
   title: 'Form/ TextInput',
-  component: TextInput,
+  component: TextInput.Root,
   parameters: {
     docs: {
       description: {
@@ -16,11 +16,16 @@ export default {
     },
   },
   args: {
-    icon: <Envelope />,
-    placeholder: 'Insira o seu nome',
+    children: (
+      <>
+        <TextInput.Icon>
+          <Envelope />
+        </TextInput.Icon>
+        <TextInput.Input placeholder="Insira o seu nome" />{' '}
+      </>
+    ),
     variant: 'default',
     disabled: false,
-    prefix: undefined,
   },
   argTypes: {
     variant: {
@@ -38,25 +43,11 @@ export default {
       description:
         'O input de texto pode estar desabilitado através do parâmetro disabled nativo do HTML5',
     },
-    icon: {
-      control: {
-        type: null,
-      },
-      description:
-        'Elemento de ícone ao lado do input de texto. A propriedade é opcional, como mostrada a seguir.',
-    },
     placeholder: {
       control: {
         type: 'text',
       },
       description: 'Parâmetro nativo do input de texto.',
-    },
-    prefix: {
-      control: {
-        type: 'text',
-      },
-      description:
-        'Elemento de texto que precede oc campo de input de texto. A propriedade é opcional, como mostrada a seguir.',
     },
   },
   decorators: [
@@ -86,14 +77,11 @@ export default {
       )
     },
   ],
-} as Meta<ITextInputProps>
+} as Meta<ITextInputRootProps>
 
-export const Default: StoryObj<ITextInputProps> = {}
+export const Default: StoryObj<ITextInputRootProps> = {}
 
-export const WithoutIcon: StoryObj<ITextInputProps> = {
-  args: {
-    icon: undefined,
-  },
+export const WithoutIcon: StoryObj<ITextInputRootProps> = {
   parameters: {
     docs: {
       description: {
@@ -103,9 +91,8 @@ export const WithoutIcon: StoryObj<ITextInputProps> = {
   },
 }
 
-export const WithPrefix: StoryObj<ITextInputProps> = {
+export const WithPrefix: StoryObj<ITextInputRootProps> = {
   args: {
-    icon: undefined,
     prefix: 'user.log/',
   },
   parameters: {
@@ -117,9 +104,8 @@ export const WithPrefix: StoryObj<ITextInputProps> = {
   },
 }
 
-export const WithPrefixAndIcon: StoryObj<ITextInputProps> = {
+export const WithPrefixAndIcon: StoryObj<ITextInputRootProps> = {
   args: {
-    icon: <User />,
     prefix: 'user.log/',
   },
   parameters: {
@@ -132,11 +118,8 @@ export const WithPrefixAndIcon: StoryObj<ITextInputProps> = {
   },
 }
 
-export const Disable: StoryObj<ITextInputProps> = {
-  args: {
-    icon: undefined,
-    disabled: true,
-  },
+export const Disable: StoryObj<ITextInputRootProps> = {
+  args: {},
   parameters: {
     docs: {
       description: {
@@ -146,10 +129,8 @@ export const Disable: StoryObj<ITextInputProps> = {
   },
 }
 
-export const Accepted: StoryObj<ITextInputProps> = {
+export const Accepted: StoryObj<ITextInputRootProps> = {
   args: {
-    icon: <User />,
-    value: 'Jon Doe',
     prefix: 'user.log/',
     variant: 'accepted',
   },
@@ -163,10 +144,8 @@ export const Accepted: StoryObj<ITextInputProps> = {
   },
 }
 
-export const InAlert: StoryObj<ITextInputProps> = {
+export const InAlert: StoryObj<ITextInputRootProps> = {
   args: {
-    icon: <User />,
-    value: '',
     prefix: 'user.log/',
     variant: 'attention',
   },
@@ -179,10 +158,8 @@ export const InAlert: StoryObj<ITextInputProps> = {
   },
 }
 
-export const Denied: StoryObj<ITextInputProps> = {
+export const Denied: StoryObj<ITextInputRootProps> = {
   args: {
-    icon: <User />,
-    value: '{  }',
     prefix: 'user.log/',
     variant: 'denied',
   },

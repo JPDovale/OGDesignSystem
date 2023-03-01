@@ -1,8 +1,8 @@
-import { ElementType, ComponentProps } from 'react'
+import React, { ComponentProps, ElementType } from 'react'
 
 import { styled } from '../styles'
 
-export const Heading = styled('h2', {
+const HeadingContainer = styled('h2', {
   lineHeight: '$shorter',
   margin: 0,
   fontFamily: '$heading',
@@ -47,8 +47,12 @@ export const Heading = styled('h2', {
   },
 })
 
-export interface IHeadingProps extends ComponentProps<typeof Heading> {
+export interface IHeadingProps extends ComponentProps<typeof HeadingContainer> {
   as?: ElementType
+}
+
+export function Heading(props: IHeadingProps) {
+  return <HeadingContainer {...props} />
 }
 
 Heading.displayName = 'Heading'

@@ -14,11 +14,6 @@ export const ButtonContainer = styled('button', {
   borderRadius: '$sm',
   transition: 'all 500ms',
 
-  svg: {
-    width: '$4',
-    height: '$4',
-  },
-
   '&:disabled': {
     cursor: 'not-allowed',
     opacity: 0.5,
@@ -47,13 +42,31 @@ export const ButtonContainer = styled('button', {
         width: '50%',
       },
     },
+    size: {
+      xxs: {
+        padding: '$1 $1',
+      },
+      xs: {
+        padding: '$2 $2',
+      },
+      sm: {
+        padding: '$3 $3',
+      },
+      md: {},
+      lg: {
+        padding: '$5 $5',
+      },
+      xl: {
+        padding: '$6 $6',
+      },
+    },
     variant: {
       default: {
         '&:not(:disabled):not(:active):hover': {
           background: '$purple500',
         },
 
-        '&:focus': {
+        '&:not(:active):focus': {
           boxShadow: '$inFocus',
         },
 
@@ -69,6 +82,19 @@ export const ButtonContainer = styled('button', {
         color: '$base500',
         boxShadow: '$onActive',
       },
+
+      noShadow: {
+        '&:not(:disabled):not(:active):hover': {
+          background: '$purple500',
+        },
+
+        '&:not(:active):focus': {
+          boxShadow: '$inFocus',
+        },
+
+        cursor: 'pointer',
+        boxShadow: 'unset',
+      },
     },
   },
 
@@ -78,3 +104,16 @@ export const ButtonContainer = styled('button', {
     variant: 'default',
   },
 })
+
+export const ButtonIconContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+
+  svg: {
+    width: '$4',
+    height: '$4',
+    lineHeight: 0,
+  },
+})
+
+export const ButtonLabelContainer = styled('span', {})
